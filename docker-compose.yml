@@ -1,0 +1,17 @@
+apache:
+    build: apache
+    restart: always
+    volumes:
+        - /var/www:/var/www
+    ports:
+        - 880:80
+        - 8443:443
+    links:
+        - php:php
+php:
+    build: php-fpm
+    restart: always
+    volumes:
+        - /var/www:/var/www
+    ports:
+            - 8089:8089
